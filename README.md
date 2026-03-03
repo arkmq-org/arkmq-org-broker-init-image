@@ -1,18 +1,27 @@
-# artemis-broker-init
-Init container image that configures artemis broker instances
+# ArkMQ Broker Init container image powered by [Apache Artemis](https://artemis.apache.org/)
+ArkMQ Broker Init is a container image for configuring [Apache Artemis](https://artemis.apache.org/) broker instances in containerized environments.
 
 # Repository
 
-The ActiveMQ Artemis broker container images are pushed to https://quay.io/repository/arkmq-org/activemq-artemis-broker-init
+The ArkMQ Broker Init container images are pushed to https://quay.io/repository/arkmq-org/arkmq-org-broker-init
 
 # Tags
 
-The ActiveMQ Artemis broker container images have release tags and special tags.
+The ArkMQ Broker Init container images have release tags and special tags.
 
 The image release tags point to images built from the sources of the releated release tags,
 i.e. the `1.0.0` image release tag points to the image built from
-the sources of the [v1.0.0](https://github.com/arkmq-org/activemq-artemis-broker-init-image/tree/v1.0.0) release tag
+the sources of the [v1.0.0](https://github.com/arkmq-org/arkmq-org-broker-init-image/tree/v1.0.0) release tag
 
-The image special tags are `latest` and `dev-latest`.
-The `latest` tag points to the image built from the sources of the latest release tag.
-The `dev-latest` tag points to the image built from the sources of the main branch, it should be used only for development purposes, it expires 7 days after the push.
+The image special tags are:
+
+- `artemis.ARTEMIS_VERSION` - points to the image built from the sources of a release tag. ie: `artemis.2.31.2`
+
+- `latest` - points to the image built from the sources of the latest release tag.
+
+- - `dev.DATE.COMMIT_ID` - points to the image built from the sources of the main branch on specific date and commit id, it should be used only for development purposes. ie: `dev.20231106.8dbe9eb`. It expires in 3 months
+
+- `dev.latest` - points to the image built from the latest sources of the main branch, it should be used only for development purposes and it is regenerated on each commit on main branch.
+
+- `snapshot` - points to the image built from the latest sources of the main branch and contains the snapshot version of Apache Artemis.
+

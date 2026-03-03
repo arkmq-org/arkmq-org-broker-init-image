@@ -1,7 +1,7 @@
 name: CI
 
 env:
-  IMAGE_NAME: activemq-artemis-broker-init
+  IMAGE_NAME: arkmq-org-broker-init
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
       - name: Update base image
         if: ${{ inputs.snapshot }}
         run: |
-          BASE_IMAGE="quay.io/${{ secrets.QUAY_NAMESPACE }}/activemq-artemis-broker-kubernetes@$(skopeo inspect docker://quay.io/${{ secrets.QUAY_NAMESPACE }}/activemq-artemis-broker-kubernetes:snapshot | jq -r '.Digest')"
+          BASE_IMAGE="quay.io/${{ secrets.QUAY_NAMESPACE }}/arkmq-org-broker-kubernetes@$(skopeo inspect docker://quay.io/${{ secrets.QUAY_NAMESPACE }}/arkmq-org-broker-kubernetes:snapshot | jq -r '.Digest')"
           sed -i "s~FROM.*~FROM ${BASE_IMAGE}~g" Dockerfile
 
       - name: Set up QEMU

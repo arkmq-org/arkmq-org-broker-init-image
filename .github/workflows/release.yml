@@ -1,7 +1,7 @@
 name: Release
 
 env:
-  IMAGE_NAME: activemq-artemis-broker-init
+  IMAGE_NAME: arkmq-org-broker-init
 
 on:
   workflow_dispatch:

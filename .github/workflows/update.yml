@@ -1,7 +1,7 @@
 name: Update
 
 env:
-  IMAGE_NAME: activemq-artemis-broker-kubernetes
+  IMAGE_NAME: arkmq-org-broker-kubernetes
 
 on:
   workflow_dispatch:
@@ -79,7 +79,7 @@ jobs:
         if: ${{ inputs.update_base_image }}
         run: |
           if [ "${{ inputs.base_image }}" = "latest" ]; then
-            BASE_IMAGE="quay.io/${{ secrets.QUAY_NAMESPACE }}/activemq-artemis-broker-kubernetes@$(skopeo inspect docker://quay.io/${{ secrets.QUAY_NAMESPACE }}/activemq-artemis-broker-kubernetes:latest | jq -r '.Digest')"
+            BASE_IMAGE="quay.io/${{ secrets.QUAY_NAMESPACE }}/arkmq-org-broker-kubernetes@$(skopeo inspect docker://quay.io/${{ secrets.QUAY_NAMESPACE }}/arkmq-org-broker-kubernetes:latest | jq -r '.Digest')"
           else
             BASE_IMAGE="${{ inputs.base_image }}"
           fi

@@ -1,4 +1,4 @@
-FROM quay.io/arkmq-org/activemq-artemis-broker-kubernetes@sha256:f9de3d120d27f216eafe2b77038e742a7c1569bba0970455969620026dde7dfc
+FROM quay.io/arkmq-org/arkmq-org-broker-kubernetes@sha256:f9de3d120d27f216eafe2b77038e742a7c1569bba0970455969620026dde7dfc
 
 USER root
 
@@ -25,7 +25,10 @@ RUN python3 setup.py install
 
 USER 185
 
-LABEL name="arkmq-org/activemq-artemis-broker-init"
-LABEL description="ActiveMQ Artemis broker init container image"
+LABEL name="arkmq-org/arkmq-org-broker-init"
+LABEL description="ArkMQ Broker Init is a container image for configuring Apache Artemis broker instances in containerized environments"
 LABEL maintainer="ArkMQ <info@arkmq.org>"
 LABEL version="2.0.12"
+LABEL org.opencontainers.image.title="ArkMQ Broker Init Powered by Apache Artemis"
+LABEL org.opencontainers.image.description="ArkMQ Broker Init is a container image for configuring Apache Artemis broker instances in containerized environments"
+LABEL org.opencontainers.image.vendor="ArkMQ"
