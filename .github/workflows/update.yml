@@ -53,14 +53,11 @@ jobs:
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v6
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
 
       - name: Set up the repo
         run: |
           git config user.name 'arkmq-bot'
-          git config user.email 'bot@arkmq-org.io'
-          git push
+          git config user.email 'bot@arkmq.org'
 
       - name: Update version
         if: ${{ inputs.update_version }}
@@ -116,19 +113,21 @@ jobs:
         run: |
           git push
 
-      - name: Trigger release
-        if: ${{ inputs.trigger_release != 'none' }}
+      - name: Trigger CI
+        env:
+          TRIGGER_CHILDREN: ${{ inputs.trigger_release == 'all' }}
+          TRIGGER_RELEASE: ${{ inputs.trigger_release != 'none' }}
         uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
           script: |
-            const trigger_children = (context.payload.inputs.trigger_release === 'all' ? 'true' : 'false')
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: 'release.yml',
               ref: context.ref,
               inputs: {
-                trigger_children: trigger_children
+                trigger_children: process.env.TRIGGER_CHILDREN,
+                trigger_release: process.env.TRIGGER_RELEASE
               }
             });
