@@ -67,7 +67,7 @@ jobs:
           sed -i "s~FROM.*~FROM ${BASE_IMAGE}~g" Dockerfile
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
 
       - name: Build the image
         run: |
