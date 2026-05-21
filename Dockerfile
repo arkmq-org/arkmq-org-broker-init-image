@@ -30,7 +30,7 @@ USER 185:0
 LABEL name="arkmq-org/arkmq-org-broker-init"
 LABEL description="ArkMQ Broker Init is a container image for configuring Apache Artemis broker instances in containerized environments"
 LABEL maintainer="ArkMQ <info@arkmq.org>"
-LABEL version="3.0.2"
+LABEL version="3.0.3"
 LABEL org.opencontainers.image.title="ArkMQ Broker Init Powered by Apache Artemis"
 LABEL org.opencontainers.image.description="ArkMQ Broker Init is a container image for configuring Apache Artemis broker instances in containerized environments"
 LABEL org.opencontainers.image.vendor="ArkMQ"
