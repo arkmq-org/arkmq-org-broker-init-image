@@ -1,4 +1,4 @@
-FROM quay.io/arkmq-org/arkmq-org-broker-kubernetes@sha256:c4676a4647e8fac743453f1e0e6a08107a9bd7989215b39bb3ea583317366f73
+FROM quay.io/arkmq-org/arkmq-org-broker-kubernetes@sha256:9892cb9e376c74746ca1be5458baa17ff427179f843dce98ec716ccf939fa35b
 
 USER root
 
